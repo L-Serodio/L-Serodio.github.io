@@ -1,68 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Serodio Gonçalves</title>
+    <img src="images/_eu_.jpeg" width="150" height="150"> 
+    <strong>Lucas Serodio Gonçalves</strong>
+    <hr />
 </head>
 <body>
-    <h1>Slider</h1>
-    <div wm-slider>
-        <p>
-            <img src="images/image_.jpg" width="700" height="300">
-        </p>
-       <p>
-            <img src="images/image1_.jpg" width="700" height="300"> 
-       </p>
-       <p>
-        <img src="images/wp2_cat.jpg" width="700" height="300">
-       </p>
+    <div>
+        <h1>Objetivo</h1>
+    <ul>
+        <li>Adquirir novos conhecimentos e experiência profissional.</li>
+    </ul>
+    <hr />
+    <h1>Formação</h1>
+    <ul>
+        <li>Bacharelado em Ciência da Computação – FURB – Em curso (3º semestre | 2021/1)</li>
+        <li>Conclusão prevista para 2024</li>
+        <li>Bolsista de extensão durante o ano de 2020 na FURB, trabalhando num projeto que utilizava Unity e desenvolvi coisas como:</li>
+        <ul>
+            <li>Serialização e desserialização de arquivos JSON;</li>
+            <li>Geração e leitura de QR code;</li>
+            <li>Criação de interfaces gráficas e transição de telas/animação.</li>
+        </ul>
+    </ul>
+    <hr />
+
     </div>
 </body>
 </html>
-
-<script>
-    function mover(elem, inicio, fim, passo, callback) {
-        const novoInicio = inicio - passo
-        if(novoInicio >= fim) {
-            elem.style.left = novoInicio + 'px'
-            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
-        } else {
-            callback()
-        }
-    }
-
-    function slider() {
-        const elementos = document.querySelectorAll('[wm-slider] > p')
-        const slides = Array.from(elementos)
-        exibirSlide(slides, slides[0])
-    }
-
-    function exibirSlide(slides, slide) {
-        slide.style.display = 'block'
-
-        const inicio = innerWidth
-        const fim = -slide.clientWidth
-
-        slide.style.left = `${inicio}px`
-
-        mover(slide, inicio, fim, 5, () => {
-            slide.style.display = 'none'
-            exibirSlide(slides, getProximo(slides, slide))
-        })
-    }
-
-    function getProximo(lista, atual) {
-        const i = lista.indexOf(atual) + 1
-        return i < lista.length ? lista[i] : lista[0]
-    }
-
-    slider()
-</script>
-
-<style>
-    p {
-        position: absolute;
-        display: none;
-    }
-</style>
